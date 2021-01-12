@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import * as themes from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useLocation } from 'react-router-dom';
 
 export default function CodeView() {
   const [source, setSource] = useState('')
   const [theme, setTheme] = useState(themes['okaidia'])
   const [themeValue, setThemeValue] = useState('okaidia')
   const [copyStatus, setCopyStatus] = useState(false)
+  const {search} = useLocation()
+  const souceOrigin = (new URLSearchParams(search)).get('origin')
 
-  import('./CodeView.source.js')
+  import(`./${souceOrigin}.source.js`)
   .then(res => {
     setSource(res.default)
   })
