@@ -1,5 +1,5 @@
 
-export default `
+const sourceCode = `
 import { useReducer } from "react"
 import {nanoid} from "nanoid"
 
@@ -119,3 +119,5 @@ export default function ReducerDemo() {
   )
 }
 `
+
+export default sourceCode

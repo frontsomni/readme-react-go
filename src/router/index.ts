@@ -2,8 +2,7 @@ import CodeView from '../views/CodeView'
 import Home from '../views/Home'
 import NotFound from '../views/NotFound'
 import ReducerDemo from '../views/ReducerDemo'
-
-export default [{
+const router = [{
   path: '/codeview',
   exact: true,
   component: CodeView
@@ -19,3 +18,5 @@ export default [{
   path: '',
   component: NotFound
 }]
+
+export default router
