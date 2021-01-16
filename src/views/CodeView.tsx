@@ -19,7 +19,7 @@ export default function CodeView() {
       setSource(data)
     }
     getSourceCode()
-  }, [])
+  }, [souceOrigin])
   return (
     <div className="d-flex flex-column h100p overflow-hidden">
       <div className="d-flex pb-2 align-items-center justify-content-between">
