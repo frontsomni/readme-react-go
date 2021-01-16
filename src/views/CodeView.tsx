@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import * as themes from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -12,10 +12,14 @@ export default function CodeView() {
   const {search} = useLocation()
   const souceOrigin = (new URLSearchParams(search)).get('origin')
 
-  import(`./${souceOrigin}.source.js`)
-  .then(res => {
-    setSource(res.default)
-  })
+  useEffect(() => {
+    async function getSourceCode() {
+      let res =  await fetch(`https://cos.ap-beijing.myqcloud.com/public-data-1254963092/readme-source/${souceOrigin}.js`)
+      let data = await res.text()
+      setSource(data)
+    }
+    getSourceCode()
+  }, [])
   return (
     <div className="d-flex flex-column h100p overflow-hidden">
       <div className="d-flex pb-2 align-items-center justify-content-between">
