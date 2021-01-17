@@ -11,15 +11,16 @@ export default function CodeView() {
   const [copyStatus, setCopyStatus] = useState(false)
   const {search} = useLocation()
   const souceOrigin = (new URLSearchParams(search)).get('origin')
+  const suffix = (new URLSearchParams(search)).get('suffix') || 'tsx'
 
   useEffect(() => {
     async function getSourceCode() {
-      let res =  await fetch(`https://cos.ap-beijing.myqcloud.com/public-data-1254963092/readme-source/${souceOrigin}.js`)
+      let res =  await fetch(`https://cos.ap-beijing.myqcloud.com/public-data-1254963092/readme-source/${souceOrigin}.${suffix}`)
       let data = await res.text()
       setSource(data)
     }
     getSourceCode()
-  }, [souceOrigin])
+  }, [souceOrigin, suffix])
   return (
     <div className="d-flex flex-column h100p overflow-hidden">
       <div className="d-flex pb-2 align-items-center justify-content-between">
