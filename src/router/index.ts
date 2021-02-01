@@ -4,8 +4,13 @@ import HookDemo from '../views/HookDemo'
 import NotFound from '../views/NotFound'
 import ReducerDemo from '../views/ReducerDemo'
 import QrFollow from '../views/QrFollow'
+import RandomId from '../views/RandomId'
 
 const router = [{
+  path: '/randomid',
+  exact: true,
+  component: RandomId
+}, {
   path: '/qrfollow',
   exact: true,
   component: QrFollow
