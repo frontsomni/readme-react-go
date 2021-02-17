@@ -5,8 +5,13 @@ import NotFound from '../views/NotFound'
 import ReducerDemo from '../views/ReducerDemo'
 import QrFollow from '../views/QrFollow'
 import RandomId from '../views/RandomId'
+import Download from '../views/Download'
 
 const router = [{
+  path: '/download',
+  exact: true,
+  component: Download
+}, {
   path: '/randomid',
   exact: true,
   component: RandomId
